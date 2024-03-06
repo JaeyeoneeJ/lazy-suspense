@@ -1,10 +1,16 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const Home = lazy(() => import("./Routes/Home"));
-const Test1 = lazy(() => import("./Routes/Test1"));
-const Test2 = lazy(() => import("./Routes/Test2"));
-const Test3 = lazy(() => import("./Routes/Test3"));
+const Home = lazy(() => import(/* webpackChunkName: "home" */ "./Routes/Home"));
+const Test1 = lazy(() =>
+  import(/* webpackChunkName: "test1" */ "./Routes/Test1")
+);
+const Test2 = lazy(() =>
+  import(/* webpackChunkName: "test2" */ "./Routes/Test2")
+);
+const Test3 = lazy(() =>
+  import(/* webpackChunkName: "test3" */ "./Routes/Test3")
+);
 
 function App() {
   return (
